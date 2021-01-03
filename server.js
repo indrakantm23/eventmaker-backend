@@ -9,12 +9,14 @@ const db = require('./model/db');
 
 // IMPORT ROUTERS
 const eventRouting = require('./routes/eventRouter');
+const userRouting = require('./routes/userRouter');
 
 app.use(cors());
 app.use(bodyParser.json());
 
 
 app.use('/events', eventRouting);
+app.use('/users', userRouting)
 
 app.get('/', (req, res) => {
         res.send('Hello')
