@@ -7,6 +7,8 @@ const User = require('./../model/users.model');
 const userRouter = express.Router();
 userRouter.use(bodyParser.json());
 
+require('./../Authentication/passport')(passport);
+
 // REGISTER USER
 userRouter.route('/register').post((req, res) => {
     let email = req.body.email;
@@ -44,7 +46,7 @@ userRouter.post('/login', (req, res, next) => {
         // console.log('Logged in');
         let user = userData;
         delete user.password;
-        return res.status(200).json({user: {id: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email}});
+        return res.status(200).json({user: {id: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email, avatar: user.avatar}});
     })(req, res, next);
 });
 

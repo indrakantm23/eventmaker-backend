@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const eventRouter = express.Router();
 const db = require('./model/db');
+const cities = require('all-the-cities');
 
 // IMPORT ROUTERS
 const eventRouting = require('./routes/eventRouter');

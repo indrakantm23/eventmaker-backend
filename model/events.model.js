@@ -3,25 +3,64 @@ const Event = new mongoose.Schema({
     eventName: {
         type: String,
     },
-    eventType: {
+    eventMode: {
         type: String
     },
-    eventStartDate: {
+    onlineURL: {
         type: String
     },
-    eventEndDate: {
+    startDate: {
         type: String
     },
-    eventStartTime: {
+    endDate: {
         type: String
     },
-    eventEndTime: {
+    startTime: {
         type: String
     },
-    eventBanner: {
+    city: {
+        type: String
+    },
+    state: {
+        type: String
+    },
+    country: {
+        type: String
+    },
+    full_address: {
+        type: String
+    },
+    endTime: {
+        type: String
+    },
+    banner: {
         type: String
     },
     description: {
+        type: String
+    },
+    entryMode: {
+        type: String
+    },
+    avlSeats: {
+        type: String
+    },
+    currency: {
+        type: String
+    },
+    ticketCategory: {
+        type: Array
+    },
+    evtLat: {
+        type: Number
+    },
+    evtLng: {
+        type: Number
+    },
+    organiser: {
+        type: Object
+    },
+    posted_on: {
         type: String
     }
 });
