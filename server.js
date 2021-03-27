@@ -11,13 +11,15 @@ const cities = require('all-the-cities');
 // IMPORT ROUTERS
 const eventRouting = require('./routes/eventRouter');
 const userRouting = require('./routes/userRouter');
+const bookingRouting = require('./routes/bookingsRouter');
 
 app.use(cors());
 app.use(bodyParser.json());
 
 
 app.use('/events', eventRouting);
-app.use('/users', userRouting)
+app.use('/users', userRouting);
+app.use('/bookings', bookingRouting);
 
 app.get('/', (req, res) => {
         res.send('Hello')

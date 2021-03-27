@@ -14,6 +14,9 @@ const User = new mongoose.Schema({
     },
     avatar: {
         type: String
+    },
+    bookings: {
+        type: Array
     }
 });
 

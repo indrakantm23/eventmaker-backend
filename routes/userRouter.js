@@ -57,8 +57,15 @@ userRouter.route('/get-users').get((req, res) => {
         else{
             res.json({users: users})
         }
-    })
-})
+    });
+});
+
+// GET ALL BOOKINGS
+userRouter.route('/get-bookings/:userId').get((req, res) => {
+    User.findById(req.params.userId).then((event) => {
+        res.json({bookings: event.bookings});
+    });
+});
 
 
 module.exports = userRouter;
