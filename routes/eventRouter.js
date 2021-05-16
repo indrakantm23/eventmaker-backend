@@ -20,6 +20,15 @@ eventRouter.route('/post-an-event').post((req, res) => {
          });
 });
 
+// UPDATE AN EVENT
+eventRouter.route('/update-an-event/:id').put((req, res) => {
+    const { body } = req;
+    Event.findByIdAndUpdate(req.params.id, body, { new: true }, (err, result) => {
+        if(err) res.json({err, message: 'Failed to update Event'});
+        else res.json({ result, message: 'Event is updated successfully' })
+    })
+});
+
 
 // GET AN EVENT
 eventRouter.route('/get-an-event/:eventId').get((req, res) => {
@@ -65,6 +74,15 @@ eventRouter.route('/search/:search_key').get((req, res) => {
         }
     });
 });
+
+// GET ALL POSTED EVENTS
+eventRouter.route('/get-events/:userId').get((req, res) => {
+    Event.find((err, events) => {
+        const data = events.filter(a => a.organiser && a.organiser.id == req.params.userId);
+        res.json({ data })
+    })
+});
+
 
 
 

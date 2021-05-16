@@ -48,6 +48,9 @@ const Event = new mongoose.Schema({
     currency: {
         type: String
     },
+    eventCategory: {
+        type: String
+    },
     ticketCategory: {
         type: Array
     },

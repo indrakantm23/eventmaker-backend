@@ -15,15 +15,16 @@ const sendOnboardingMail = (data) => {
         }
       });
 
+      console.log(data.data)
       let bookingData = data.eventData.entryMode === 'free' ? `
                     <table style="width:100%;border-collapse: collapse;">
-                    <tr>
-                        <th style="border: 1px solid #999;padding: 0.5rem;text-align: left;">Seats Booked</th> 
-                        <th style="border: 1px solid #999;padding: 0.5rem;text-align: left;">Amount</th>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #999; padding: 0.5rem;text-align: left;">${data.data}</td>
-                        <td style="border: 1px solid #999; padding: 0.5rem;text-align: left;">Free</td>
+                        <tr>
+                            <th style="border: 1px solid #999;padding: 0.5rem;text-align: left;">Seats Booked</th> 
+                            <th style="border: 1px solid #999;padding: 0.5rem;text-align: left;">Amount</th>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #999; padding: 0.5rem;text-align: left;">${data.data}</td>
+                            <td style="border: 1px solid #999; padding: 0.5rem;text-align: left;">Free</td>
                         </tr>
                     </table>
                   ` : `
