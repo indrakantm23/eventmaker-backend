@@ -15,6 +15,7 @@ const cities = require('all-the-cities');
 const eventRouting = require('./routes/eventRouter');
 const userRouting = require('./routes/userRouter');
 const bookingRouting = require('./routes/bookingsRouter');
+const locationRouter = require('./routes/locationRouter');
 
 const swaggerOptions = {
         definition: {
@@ -44,6 +45,7 @@ app.use(bodyParser.json());
 app.use('/events', eventRouting);
 app.use('/users', userRouting);
 app.use('/bookings', bookingRouting);
+app.use('/location', locationRouter);
 
 app.get('/', (req, res) => {
         res.send('Hello')

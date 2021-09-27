@@ -14,7 +14,7 @@ userRouter.route('/register').post((req, res) => {
     let email = req.body.email;
     User.findOne({email, email}).then(user => {
         if(user){
-            res.status(400).json({user: 'User already exist'});
+            res.status(400).json({message: 'User already exist'});
         }else{
             let user = new User(req.body);
             bcrypt.genSalt(10, (err, salt) => {
@@ -23,7 +23,7 @@ userRouter.route('/register').post((req, res) => {
                     user.password = hash;
                     user.save()
                     .then(user => {
-                        res.status(200).json({user: 'User created successfully'});
+                        res.status(200).json({message: 'User created successfully'});
                     })
                     .catch(err => {
                         res.status(400).send('Failed creating user');
